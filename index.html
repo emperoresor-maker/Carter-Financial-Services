@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carter Financial Services</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      color: #1f2933;
+    }
+
+    .header {
+      background: #123b5d;
+      color: white;
+      padding: 22px;
+      text-align: center;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+
+    .demo-notice {
+      background: #fff3cd;
+      color: #664d03;
+      text-align: center;
+      padding: 8px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .login {
+      max-width: 400px;
+      margin: 70px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,.08);
+    }
+
+    .login h2 {
+      text-align: center;
+    }
+
+    input {
+      width: 100%;
+      padding: 13px;
+      margin: 8px 0 15px;
+      border: 1px solid #ccc;
+      border-radius: 7px;
+    }
+
+    button {
+      width: 100%;
+      padding: 13px;
+      border: none;
+      border-radius: 7px;
+      background: #123b5d;
+      color: white;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    .dashboard {
+      display: none;
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      margin-bottom: 20px;
+      border-radius: 12px;
+      box-shadow: 0 3px 15px rgba(0,0,0,.07);
+    }
+
+    .balance {
+      font-size: 38px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .transaction {
+      padding: 15px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .status {
+      font-weight: bold;
+    }
+
+    .logout {
+      background: #555;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="header">
+    <h1>Carter Financial Services</h1>
+  </div>
+
+  <div class="demo-notice">
+    DEMO ACCOUNT — NO REAL MONEY OR BANKING SERVICES
+  </div>
+
+  <div class="login" id="loginPage">
+    <h2>Account Login</h2>
+
+    <label>Username</label>
+    <input type="text" id="username" placeholder="Enter username">
+
+    <label>Password</label>
+    <input type="password" id="password" placeholder="Enter password">
+
+    <button onclick="login()">Sign In</button>
+  </div>
+
+  <div class="dashboard" id="dashboard">
+
+    <div class="card">
+      <h2>Welcome, Demo Customer</h2>
+      <p>Available Balance</p>
+
+      <div class="balance" id="balance">
+        $10,000.00
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Transactions</h2>
+
+      <div class="transaction">
+        <strong>Demo Deposit</strong><br>
+        +$2,000.00<br>
+        <span class="status">SIMULATED</span>
+      </div>
+
+      <div class="transaction">
+        <strong>Demo Stock Purchase</strong><br>
+        -$500.00<br>
+        <span class="status">SIMULATED</span>
+      </div>
+
+      <div class="transaction">
+        <strong>Demo Account Funding</strong><br>
+        +$1,000.00<br>
+        <span class="status">SIMULATED</span>
+      </div>
+    </div>
+
+    <button class="logout" onclick="logout()">Log Out</button>
+
+  </div>
+
+  <script>
+
+    function login() {
+
+      const username =
+        document.getElementById("username").value;
+
+      const password =
+        document.getElementById("password").value;
+
+      if (username === "" || password === "") {
+        alert("Please enter a username and password.");
+        return;
+      }
+
+      document.getElementById("loginPage").style.display = "none";
+
+      document.getElementById("dashboard").style.display = "block";
+    }
+
+    function logout() {
+
+      document.getElementById("dashboard").style.display = "none";
+
+      document.getElementById("loginPage").style.display = "block";
+
+      document.getElementById("username").value = "";
+
+      document.getElementById("password").value = "";
+    }
+
+  </script>
+
+</body>
+</html>
